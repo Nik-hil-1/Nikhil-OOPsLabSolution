@@ -22,7 +22,17 @@ public class Service {
 	}
 	
 	public String generateEmail(Employee emp,  String department) {
-        return emp.getFirstName()+emp.getLastName()+"."+department+"@greatlearning.com";
+		
+		String fullName = emp.getFirstName()+emp.getLastName();
+		StringBuilder name = new StringBuilder();
+		char[] lowerCase = new char[fullName.length()];
+		
+		for(int i=0; i<fullName.length(); i++) {
+			lowerCase[i] = Character.toLowerCase(fullName.charAt(i));
+			name.append(lowerCase[i]);
+		}
+		
+        return name+"."+department+"@greatlearning.com";
 	}
 	
 	public void showCredentials(Employee emp, String department ) {
